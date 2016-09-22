@@ -12,10 +12,9 @@ drmario
 duckhunt
 falco
 fox
-ganondorf
+ganon
 gekkouga
 ike
-purin
 dedede
 kirby
 link
@@ -37,7 +36,7 @@ palutena
 peach
 pikachu
 pit
-robot	
+robot
 reflet
 rosetta
 roy
@@ -56,3 +55,4 @@ szerosuit
 miiswordsman
 miifighter
 miigunner
+diddy

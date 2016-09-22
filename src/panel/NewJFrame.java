@@ -7,12 +7,26 @@ package panel;
 
 import core.CharSmash;
 import core.Randomizer;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Image;
-import java.io.File;
+import java.awt.color.ColorSpace;
+import static java.awt.color.ColorSpace.CS_GRAY;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.border.BevelBorder;
 
 /**
  *
@@ -20,16 +34,20 @@ import javax.swing.ImageIcon;
  */
 public class NewJFrame extends javax.swing.JFrame {
 
-    Randomizer rand;
-    
+    private Randomizer rand;
+
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
         try {
-            rand = new Randomizer(new File(".\\src\\rsc\\Roster.txt"));
+            InputStream inp = Randomizer.class.getResourceAsStream("Roster.txt");
+            BufferedReader bf = new BufferedReader(new InputStreamReader(inp));
+            rand = new Randomizer(bf);
+
             initComponents();
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(rootPane, "File Roster not found");
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -43,20 +61,76 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        CadrePortrait = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        bayo = new javax.swing.JLabel();
+        bowser = new javax.swing.JLabel();
+        bowserjr = new javax.swing.JLabel();
+        captain = new javax.swing.JLabel();
+        zard = new javax.swing.JLabel();
+        genkaiwokoeru = new javax.swing.JLabel();
+        corrin = new javax.swing.JLabel();
+        darkpit = new javax.swing.JLabel();
+        diddy = new javax.swing.JLabel();
+        donkey = new javax.swing.JLabel();
+        noapplefordoc = new javax.swing.JLabel();
+        banjo = new javax.swing.JLabel();
+        falco = new javax.swing.JLabel();
+        FIYAAAAH = new javax.swing.JLabel();
+        ganon = new javax.swing.JLabel();
+        greninja = new javax.swing.JLabel();
+        yourfriend = new javax.swing.JLabel();
+        puff = new javax.swing.JLabel();
+        DDD = new javax.swing.JLabel();
+        vacuum = new javax.swing.JLabel();
+        upsmashsimulator = new javax.swing.JLabel();
+        littlemac = new javax.swing.JLabel();
+        furry = new javax.swing.JLabel();
+        lucas = new javax.swing.JLabel();
+        Lukina = new javax.swing.JLabel();
+        weegee = new javax.swing.JLabel();
+        jumpman = new javax.swing.JLabel();
+        marth = new javax.swing.JLabel();
+        megaman = new javax.swing.JLabel();
+        brawl = new javax.swing.JLabel();
+        mew2fast4u = new javax.swing.JLabel();
+        miibrawler = new javax.swing.JLabel();
+        miigunner = new javax.swing.JLabel();
+        lonk = new javax.swing.JLabel();
+        mrnine = new javax.swing.JLabel();
+        neOKAY = new javax.swing.JLabel();
+        olimar = new javax.swing.JLabel();
+        wakawakawakawaka = new javax.swing.JLabel();
+        palutena = new javax.swing.JLabel();
+        peach = new javax.swing.JLabel();
+        pikachu = new javax.swing.JLabel();
+        pit = new javax.swing.JLabel();
+        dyingrace = new javax.swing.JLabel();
+        miroir = new javax.swing.JLabel();
+        jank = new javax.swing.JLabel();
+        yourboy = new javax.swing.JLabel();
+        shoryuken = new javax.swing.JLabel();
+        samus = new javax.swing.JLabel();
+        sheik = new javax.swing.JLabel();
+        zeRolovesu = new javax.swing.JLabel();
+        tailssenpai = new javax.swing.JLabel();
+        toonlink = new javax.swing.JLabel();
+        villager = new javax.swing.JLabel();
+        yellowmario = new javax.swing.JLabel();
+        WiiFit = new javax.swing.JLabel();
+        yoshi = new javax.swing.JLabel();
+        zelda = new javax.swing.JLabel();
+        zss = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Smash Randomizer");
+        setMaximumSize(new java.awt.Dimension(1088, 726));
         setSize(new java.awt.Dimension(1024, 512));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 421, 416));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 421, 57));
+        CadrePortrait.setBackground(new java.awt.Color(255, 255, 255));
+        CadrePortrait.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("Tirer au sort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,19 +138,834 @@ public class NewJFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/stage_11_battlefield_l.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+        jPanel1.setOpaque(false);
+
+        bayo.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_bayonetta_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        bayo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bayo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bayoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(bayo);
+
+        bowser.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_koopa_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        bowser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bowser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bowserMouseClicked(evt);
+            }
+        });
+        jPanel1.add(bowser);
+
+        bowserjr.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_koopajr_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        bowserjr.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bowserjr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bowserjrMouseClicked(evt);
+            }
+        });
+        jPanel1.add(bowserjr);
+
+        captain.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_captain_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        captain.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        captain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                captainMouseClicked(evt);
+            }
+        });
+        jPanel1.add(captain);
+
+        zard.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_lizardon_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        zard.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        zard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zardMouseClicked(evt);
+            }
+        });
+        jPanel1.add(zard);
+
+        genkaiwokoeru.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_cloud_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        genkaiwokoeru.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        genkaiwokoeru.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                genkaiwokoeruMouseClicked(evt);
+            }
+        });
+        jPanel1.add(genkaiwokoeru);
+
+        corrin.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_kamui_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        corrin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        corrin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                corrinMouseClicked(evt);
+            }
+        });
+        jPanel1.add(corrin);
+
+        darkpit.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_pitb_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        darkpit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        darkpit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                darkpitMouseClicked(evt);
+            }
+        });
+        jPanel1.add(darkpit);
+
+        diddy.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_diddy_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        diddy.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        diddy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                diddyMouseClicked(evt);
+            }
+        });
+        jPanel1.add(diddy);
+
+        donkey.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_donkey_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        donkey.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        donkey.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                donkeyMouseClicked(evt);
+            }
+        });
+        jPanel1.add(donkey);
+
+        noapplefordoc.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_drmario_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        noapplefordoc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        noapplefordoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                noapplefordocMouseClicked(evt);
+            }
+        });
+        jPanel1.add(noapplefordoc);
+
+        banjo.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_duckhunt_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        banjo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        banjo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                banjoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(banjo);
+
+        falco.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_falco_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        falco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        falco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                falcoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(falco);
+
+        FIYAAAAH.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_fox_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        FIYAAAAH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        FIYAAAAH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FIYAAAAHMouseClicked(evt);
+            }
+        });
+        jPanel1.add(FIYAAAAH);
+
+        ganon.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_ganon_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        ganon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ganon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ganonMouseClicked(evt);
+            }
+        });
+        jPanel1.add(ganon);
+
+        greninja.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_gekkouga_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        greninja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        greninja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                greninjaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(greninja);
+
+        yourfriend.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_ike_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        yourfriend.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        yourfriend.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yourfriendMouseClicked(evt);
+            }
+        });
+        jPanel1.add(yourfriend);
+
+        puff.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_purin_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        puff.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        puff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                puffMouseClicked(evt);
+            }
+        });
+        jPanel1.add(puff);
+
+        DDD.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_dedede_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        DDD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DDD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DDDMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DDD);
+
+        vacuum.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_kirby_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        vacuum.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        vacuum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vacuumMouseClicked(evt);
+            }
+        });
+        jPanel1.add(vacuum);
+
+        upsmashsimulator.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_link_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        upsmashsimulator.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        upsmashsimulator.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                upsmashsimulatorMouseClicked(evt);
+            }
+        });
+        jPanel1.add(upsmashsimulator);
+
+        littlemac.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_littlemac_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        littlemac.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        littlemac.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                littlemacMouseClicked(evt);
+            }
+        });
+        jPanel1.add(littlemac);
+
+        furry.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_lucario_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        furry.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        furry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                furryMouseClicked(evt);
+            }
+        });
+        jPanel1.add(furry);
+
+        lucas.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_lucas_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        lucas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lucas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lucasMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lucas);
+
+        Lukina.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_lucina_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        Lukina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Lukina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LukinaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Lukina);
+
+        weegee.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_luigi_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        weegee.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        weegee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                weegeeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(weegee);
+
+        jumpman.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_mario_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        jumpman.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jumpman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jumpmanMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jumpman);
+
+        marth.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_marth_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        marth.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        marth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                marthMouseClicked(evt);
+            }
+        });
+        jPanel1.add(marth);
+
+        megaman.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_rockman_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        megaman.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        megaman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                megamanMouseClicked(evt);
+            }
+        });
+        jPanel1.add(megaman);
+
+        brawl.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_metaknight_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        brawl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        brawl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                brawlMouseClicked(evt);
+            }
+        });
+        jPanel1.add(brawl);
+
+        mew2fast4u.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_mewtwo_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        mew2fast4u.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mew2fast4u.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mew2fast4uMouseClicked(evt);
+            }
+        });
+        jPanel1.add(mew2fast4u);
+
+        miibrawler.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_miifighter_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        miibrawler.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        miibrawler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miibrawlerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(miibrawler);
+
+        miigunner.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_miigunner_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        miigunner.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        miigunner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miigunnerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(miigunner);
+
+        lonk.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_miiswordsman_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        lonk.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lonk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lonkMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lonk);
+
+        mrnine.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_gamewatch_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        mrnine.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mrnine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mrnineMouseClicked(evt);
+            }
+        });
+        jPanel1.add(mrnine);
+
+        neOKAY.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_ness_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        neOKAY.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        neOKAY.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                neOKAYMouseClicked(evt);
+            }
+        });
+        jPanel1.add(neOKAY);
+
+        olimar.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_pikmin_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        olimar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        olimar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                olimarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(olimar);
+
+        wakawakawakawaka.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_pacman_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        wakawakawakawaka.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        wakawakawakawaka.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                wakawakawakawakaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(wakawakawakawaka);
+
+        palutena.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_palutena_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        palutena.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        palutena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                palutenaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(palutena);
+
+        peach.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_peach_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        peach.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        peach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                peachMouseClicked(evt);
+            }
+        });
+        jPanel1.add(peach);
+
+        pikachu.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_pikachu_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        pikachu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pikachu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pikachuMouseClicked(evt);
+            }
+        });
+        jPanel1.add(pikachu);
+
+        pit.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_pit_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        pit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pitMouseClicked(evt);
+            }
+        });
+        jPanel1.add(pit);
+
+        dyingrace.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_robot_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        dyingrace.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dyingrace.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dyingraceMouseClicked(evt);
+            }
+        });
+        jPanel1.add(dyingrace);
+
+        miroir.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_reflet_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        miroir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        miroir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miroirMouseClicked(evt);
+            }
+        });
+        jPanel1.add(miroir);
+
+        jank.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_rosetta_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        jank.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jank.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jankMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jank);
+
+        yourboy.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_roy_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        yourboy.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        yourboy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yourboyMouseClicked(evt);
+            }
+        });
+        jPanel1.add(yourboy);
+
+        shoryuken.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_ryu_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        shoryuken.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        shoryuken.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shoryukenMouseClicked(evt);
+            }
+        });
+        jPanel1.add(shoryuken);
+
+        samus.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_samus_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        samus.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        samus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                samusMouseClicked(evt);
+            }
+        });
+        jPanel1.add(samus);
+
+        sheik.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_sheik_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        sheik.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sheik.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sheikMouseClicked(evt);
+            }
+        });
+        jPanel1.add(sheik);
+
+        zeRolovesu.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_shulk_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        zeRolovesu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        zeRolovesu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zeRolovesuMouseClicked(evt);
+            }
+        });
+        jPanel1.add(zeRolovesu);
+
+        tailssenpai.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_sonic_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        tailssenpai.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tailssenpai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tailssenpaiMouseClicked(evt);
+            }
+        });
+        jPanel1.add(tailssenpai);
+
+        toonlink.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_toonlink_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        toonlink.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        toonlink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toonlinkMouseClicked(evt);
+            }
+        });
+        jPanel1.add(toonlink);
+
+        villager.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_murabito_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        villager.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        villager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                villagerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(villager);
+
+        yellowmario.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_wario_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        yellowmario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        yellowmario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yellowmarioMouseClicked(evt);
+            }
+        });
+        jPanel1.add(yellowmario);
+
+        WiiFit.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_wiifit_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        WiiFit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        WiiFit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WiiFitMouseClicked(evt);
+            }
+        });
+        jPanel1.add(WiiFit);
+
+        yoshi.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_yoshi_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        yoshi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        yoshi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yoshiMouseClicked(evt);
+            }
+        });
+        jPanel1.add(yoshi);
+
+        zelda.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_zelda_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        zelda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        zelda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zeldaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(zelda);
+
+        zss.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_szerosuit_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        zss.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        zss.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zssMouseClicked(evt);
+            }
+        });
+        jPanel1.add(zss);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(630, 630, 630)
+                        .addComponent(CadrePortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1))
+                .addGap(36, 36, 36))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(14, 14, 14)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(530, 530, 530)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(CadrePortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(100, 100, Short.MAX_VALUE))
+        );
+
+        CadrePortrait.getAccessibleContext().setAccessibleParent(CadrePortrait);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CharSmash drawchar = rand.drawChar(); 
-        jLabel1.setIcon(new ImageIcon(new ImageIcon(drawchar.getPortrait()).getImage().getScaledInstance(416, 416, Image.SCALE_DEFAULT)));
-        jLabel2.setText(drawchar.getName());
+        CharSmash drawchar = rand.drawChar();
+       
+        CadrePortrait.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(drawchar.getPortrait())).getImage().getScaledInstance(416, 416, Image.SCALE_SMOOTH)));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bayoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bayoMouseClicked
+        changePicture("bayonetta", bayo);
+    }//GEN-LAST:event_bayoMouseClicked
+
+    private void bowserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bowserMouseClicked
+        changePicture("koopa", bowser);
+    }//GEN-LAST:event_bowserMouseClicked
+
+    private void bowserjrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bowserjrMouseClicked
+        changePicture("koopajr", bowserjr);
+    }//GEN-LAST:event_bowserjrMouseClicked
+
+    private void captainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_captainMouseClicked
+        changePicture("captain", captain);
+    }//GEN-LAST:event_captainMouseClicked
+
+    private void zardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zardMouseClicked
+        changePicture("lizardon", zard);
+    }//GEN-LAST:event_zardMouseClicked
+
+    private void genkaiwokoeruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_genkaiwokoeruMouseClicked
+        changePicture("cloud", genkaiwokoeru);
+    }//GEN-LAST:event_genkaiwokoeruMouseClicked
+
+    private void corrinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_corrinMouseClicked
+        changePicture("kamui", corrin);
+    }//GEN-LAST:event_corrinMouseClicked
+
+    private void darkpitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darkpitMouseClicked
+        changePicture("pitb", darkpit);
+    }//GEN-LAST:event_darkpitMouseClicked
+
+    private void diddyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diddyMouseClicked
+        changePicture("diddy", diddy);
+    }//GEN-LAST:event_diddyMouseClicked
+
+    private void donkeyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donkeyMouseClicked
+        changePicture("donkey", donkey);
+    }//GEN-LAST:event_donkeyMouseClicked
+
+    private void noapplefordocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noapplefordocMouseClicked
+        changePicture("drmario", noapplefordoc);
+    }//GEN-LAST:event_noapplefordocMouseClicked
+
+    private void banjoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_banjoMouseClicked
+        changePicture("duckhunt", banjo);
+    }//GEN-LAST:event_banjoMouseClicked
+
+    private void falcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_falcoMouseClicked
+        changePicture("falco", falco);
+    }//GEN-LAST:event_falcoMouseClicked
+
+    private void FIYAAAAHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIYAAAAHMouseClicked
+        changePicture("fox", FIYAAAAH);
+    }//GEN-LAST:event_FIYAAAAHMouseClicked
+
+    private void ganonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ganonMouseClicked
+        changePicture("ganon", ganon);
+    }//GEN-LAST:event_ganonMouseClicked
+
+    private void greninjaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_greninjaMouseClicked
+        changePicture("gekkouga", greninja);
+    }//GEN-LAST:event_greninjaMouseClicked
+
+    private void yourfriendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yourfriendMouseClicked
+        changePicture("ike", yourfriend);
+    }//GEN-LAST:event_yourfriendMouseClicked
+
+    private void puffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_puffMouseClicked
+        changePicture("purin", puff);
+    }//GEN-LAST:event_puffMouseClicked
+
+    private void DDDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DDDMouseClicked
+        changePicture("dedede", DDD);
+    }//GEN-LAST:event_DDDMouseClicked
+
+    private void vacuumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vacuumMouseClicked
+        changePicture("kirby", vacuum);
+    }//GEN-LAST:event_vacuumMouseClicked
+
+    private void upsmashsimulatorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_upsmashsimulatorMouseClicked
+        changePicture("link", upsmashsimulator);
+    }//GEN-LAST:event_upsmashsimulatorMouseClicked
+
+    private void littlemacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_littlemacMouseClicked
+        changePicture("littlemac", littlemac);
+    }//GEN-LAST:event_littlemacMouseClicked
+
+    private void furryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_furryMouseClicked
+        changePicture("lucario", furry);
+    }//GEN-LAST:event_furryMouseClicked
+
+    private void lucasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lucasMouseClicked
+        changePicture("lucas", lucas);
+    }//GEN-LAST:event_lucasMouseClicked
+
+    private void LukinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LukinaMouseClicked
+        changePicture("lucina", Lukina);
+    }//GEN-LAST:event_LukinaMouseClicked
+
+    private void weegeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weegeeMouseClicked
+        changePicture("luigi", weegee);
+    }//GEN-LAST:event_weegeeMouseClicked
+
+    private void jumpmanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jumpmanMouseClicked
+        changePicture("mario", jumpman);
+    }//GEN-LAST:event_jumpmanMouseClicked
+
+    private void marthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marthMouseClicked
+        changePicture("marth", marth);
+    }//GEN-LAST:event_marthMouseClicked
+
+    private void megamanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_megamanMouseClicked
+        changePicture("rockman", megaman);
+    }//GEN-LAST:event_megamanMouseClicked
+
+    private void brawlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_brawlMouseClicked
+        changePicture("metaknight", brawl);
+    }//GEN-LAST:event_brawlMouseClicked
+
+    private void mew2fast4uMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mew2fast4uMouseClicked
+        changePicture("mewtwo", mew2fast4u);
+    }//GEN-LAST:event_mew2fast4uMouseClicked
+
+    private void miibrawlerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miibrawlerMouseClicked
+        changePicture("miifighter", miibrawler);
+    }//GEN-LAST:event_miibrawlerMouseClicked
+
+    private void miigunnerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miigunnerMouseClicked
+        changePicture("miigunner", miigunner);
+    }//GEN-LAST:event_miigunnerMouseClicked
+
+    private void lonkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lonkMouseClicked
+        changePicture("miiswordsman", lonk);
+    }//GEN-LAST:event_lonkMouseClicked
+
+    private void mrnineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mrnineMouseClicked
+        changePicture("gamewatch", mrnine);
+    }//GEN-LAST:event_mrnineMouseClicked
+
+    private void neOKAYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_neOKAYMouseClicked
+        changePicture("ness", neOKAY);
+    }//GEN-LAST:event_neOKAYMouseClicked
+
+    private void olimarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_olimarMouseClicked
+        changePicture("pikmin", olimar);
+    }//GEN-LAST:event_olimarMouseClicked
+
+    private void wakawakawakawakaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wakawakawakawakaMouseClicked
+        changePicture("pacman", wakawakawakawaka);
+    }//GEN-LAST:event_wakawakawakawakaMouseClicked
+
+    private void palutenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_palutenaMouseClicked
+        changePicture("palutena", palutena);
+    }//GEN-LAST:event_palutenaMouseClicked
+
+    private void peachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peachMouseClicked
+        changePicture("peach", peach);
+    }//GEN-LAST:event_peachMouseClicked
+
+    private void pikachuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pikachuMouseClicked
+        changePicture("pikachu", pikachu); //Pikachu, mouse, joke
+    }//GEN-LAST:event_pikachuMouseClicked
+
+    private void pitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pitMouseClicked
+        changePicture("pit", pit);
+    }//GEN-LAST:event_pitMouseClicked
+
+    private void dyingraceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dyingraceMouseClicked
+        changePicture("robot", dyingrace);
+    }//GEN-LAST:event_dyingraceMouseClicked
+
+    private void miroirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miroirMouseClicked
+        changePicture("reflet", miroir); //it's a french joke
+    }//GEN-LAST:event_miroirMouseClicked
+
+    private void jankMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jankMouseClicked
+        changePicture("rosetta", jank);
+    }//GEN-LAST:event_jankMouseClicked
+
+    private void yourboyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yourboyMouseClicked
+        changePicture("roy", yourboy);
+    }//GEN-LAST:event_yourboyMouseClicked
+
+    private void shoryukenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shoryukenMouseClicked
+        changePicture("ryu", shoryuken);
+    }//GEN-LAST:event_shoryukenMouseClicked
+
+    private void samusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_samusMouseClicked
+        changePicture("samus", samus);
+    }//GEN-LAST:event_samusMouseClicked
+
+    private void sheikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sheikMouseClicked
+        changePicture("sheik", sheik);
+    }//GEN-LAST:event_sheikMouseClicked
+
+    private void zeRolovesuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeRolovesuMouseClicked
+        changePicture("shulk", zeRolovesu);
+    }//GEN-LAST:event_zeRolovesuMouseClicked
+
+    private void tailssenpaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tailssenpaiMouseClicked
+        changePicture("sonic", tailssenpai);
+    }//GEN-LAST:event_tailssenpaiMouseClicked
+
+    private void toonlinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toonlinkMouseClicked
+        changePicture("toonlink", toonlink);
+    }//GEN-LAST:event_toonlinkMouseClicked
+
+    private void villagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_villagerMouseClicked
+        changePicture("murabito", villager);
+    }//GEN-LAST:event_villagerMouseClicked
+
+    private void yellowmarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowmarioMouseClicked
+        changePicture("wario", yellowmario);
+        System.out.println("WAAAAAAAAA");
+    }//GEN-LAST:event_yellowmarioMouseClicked
+
+    private void WiiFitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WiiFitMouseClicked
+        changePicture("wiifit", WiiFit);
+    }//GEN-LAST:event_WiiFitMouseClicked
+
+    private void yoshiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yoshiMouseClicked
+        changePicture("yoshi", yoshi);
+    }//GEN-LAST:event_yoshiMouseClicked
+
+    private void zeldaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeldaMouseClicked
+        changePicture("zelda", zelda);
+    }//GEN-LAST:event_zeldaMouseClicked
+
+    private void zssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zssMouseClicked
+        changePicture("szerosuit", zss);
+    }//GEN-LAST:event_zssMouseClicked
+
+    private void changePicture(String name, JLabel label) {
+
+        if (rand.getChar(name)) {
+            Kernel k = new Kernel(3, 3, new float[]{.1111f, .1111f, .1111f,
+                .1111f, .1111f, .1111f,
+                .1111f, .1111f, .1111f});
+            ConvolveOp op2 = new ConvolveOp(k);
+
+            BufferedImage bimage = new BufferedImage(label.getIcon().getIconWidth(), label.getIcon().getIconHeight(), BufferedImage.TYPE_BYTE_INDEXED);
+
+            Graphics2D bGr = bimage.createGraphics();
+            bGr.drawImage(((ImageIcon) label.getIcon()).getImage(), 0, 0, null);
+            bGr.dispose();
+
+            ColorConvertOp op = new ColorConvertOp(ColorSpace.getInstance(CS_GRAY), null);
+            BufferedImage grayImage = op2.filter(op.filter(bimage, null), null);
+
+            label.setIcon(new ImageIcon(grayImage));
+            label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+
+        } else {
+            label.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/rsc/icons/chr_00_" + name + "_01.png")).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+            label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -111,12 +1000,72 @@ public class NewJFrame extends javax.swing.JFrame {
                 new NewJFrame().setVisible(true);
             }
         });
+
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CadrePortrait;
+    private javax.swing.JLabel DDD;
+    private javax.swing.JLabel FIYAAAAH;
+    private javax.swing.JLabel Lukina;
+    private javax.swing.JLabel WiiFit;
+    private javax.swing.JLabel banjo;
+    private javax.swing.JLabel bayo;
+    private javax.swing.JLabel bowser;
+    private javax.swing.JLabel bowserjr;
+    private javax.swing.JLabel brawl;
+    private javax.swing.JLabel captain;
+    private javax.swing.JLabel corrin;
+    private javax.swing.JLabel darkpit;
+    private javax.swing.JLabel diddy;
+    private javax.swing.JLabel donkey;
+    private javax.swing.JLabel dyingrace;
+    private javax.swing.JLabel falco;
+    private javax.swing.JLabel furry;
+    private javax.swing.JLabel ganon;
+    private javax.swing.JLabel genkaiwokoeru;
+    private javax.swing.JLabel greninja;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jank;
+    private javax.swing.JLabel jumpman;
+    private javax.swing.JLabel littlemac;
+    private javax.swing.JLabel lonk;
+    private javax.swing.JLabel lucas;
+    private javax.swing.JLabel marth;
+    private javax.swing.JLabel megaman;
+    private javax.swing.JLabel mew2fast4u;
+    private javax.swing.JLabel miibrawler;
+    private javax.swing.JLabel miigunner;
+    private javax.swing.JLabel miroir;
+    private javax.swing.JLabel mrnine;
+    private javax.swing.JLabel neOKAY;
+    private javax.swing.JLabel noapplefordoc;
+    private javax.swing.JLabel olimar;
+    private javax.swing.JLabel palutena;
+    private javax.swing.JLabel peach;
+    private javax.swing.JLabel pikachu;
+    private javax.swing.JLabel pit;
+    private javax.swing.JLabel puff;
+    private javax.swing.JLabel samus;
+    private javax.swing.JLabel sheik;
+    private javax.swing.JLabel shoryuken;
+    private javax.swing.JLabel tailssenpai;
+    private javax.swing.JLabel toonlink;
+    private javax.swing.JLabel upsmashsimulator;
+    private javax.swing.JLabel vacuum;
+    private javax.swing.JLabel villager;
+    private javax.swing.JLabel wakawakawakawaka;
+    private javax.swing.JLabel weegee;
+    private javax.swing.JLabel yellowmario;
+    private javax.swing.JLabel yoshi;
+    private javax.swing.JLabel yourboy;
+    private javax.swing.JLabel yourfriend;
+    private javax.swing.JLabel zard;
+    private javax.swing.JLabel zeRolovesu;
+    private javax.swing.JLabel zelda;
+    private javax.swing.JLabel zss;
     // End of variables declaration//GEN-END:variables
 }

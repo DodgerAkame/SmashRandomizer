@@ -54,35 +54,15 @@ public class View extends javax.swing.JFrame {
 
 		jLabel1.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_bayonetta_01.png")));
-		jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jLabel1MouseClicked(evt);
-			}
-		});
 
 		jLabel2.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_captain_01.png")));
-		jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jLabel2MouseClicked(evt);
-			}
-		});
 
 		jLabel3.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_cloud_01.png")));
-		jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jLabel3MouseClicked(evt);
-			}
-		});
 
 		jLabel4.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_dedede_01.png")));
-		jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jLabel4MouseClicked(evt);
-			}
-		});
 
 		draw.setText("jButton1");
 		draw.addActionListener(new java.awt.event.ActionListener() {

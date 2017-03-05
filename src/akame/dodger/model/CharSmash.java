@@ -49,4 +49,5 @@ public class CharSmash {
         this.checked = checked;
     }
 
+
 }

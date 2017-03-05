@@ -49,3 +49,8 @@ Temporary Items
 *.png
 .classpath
 *.prefs
+/build/
+/dist/
+*.class
+bin/
+.externalTooBuilders/

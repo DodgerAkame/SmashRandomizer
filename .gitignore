@@ -52,3 +52,5 @@ Temporary Items
 /build/
 /dist/
 *.class
+bin/
+.externalTooBuilders/

@@ -5,13 +5,20 @@
  */
 package akame.dodger.view;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 
 import akame.dodger.model.CharSmash;
 
@@ -62,6 +69,36 @@ public class View extends javax.swing.JFrame {
 				for (CharSmash character : controller1.getRoster())
 					if (character.getName().equals(e.getActionCommand())) {
 						character.setChecked(!character.isChecked());
+
+						if (!character.isChecked()) {
+							Kernel k = new Kernel(3, 3, new float[] { .1111f, .1111f, .1111f, .1111f, .1111f, .1111f,
+									.1111f, .1111f, .1111f });
+							ConvolveOp op2 = new ConvolveOp(k);
+
+							BufferedImage bimage = new BufferedImage(
+									((JToggleButton) e.getSource()).getIcon().getIconWidth(),
+									((JToggleButton) e.getSource()).getIcon().getIconHeight(),
+									BufferedImage.TYPE_4BYTE_ABGR);
+
+							Graphics2D bGr = bimage.createGraphics();
+							bGr.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
+									null);
+							bGr.dispose();
+
+							Graphics2D graphics = bimage.createGraphics();
+							graphics.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
+									null);
+							Color newColor = new Color(50, 50, 175, 0);
+							graphics.setXORMode(newColor);
+							graphics.drawImage(bimage, null, 0, 0);
+							graphics.dispose();
+
+							((JToggleButton) e.getSource()).setIcon(new ImageIcon(bimage));
+
+						} else {
+							((JToggleButton) e.getSource()).setIcon(new ImageIcon(getClass()
+									.getResource("/akame/dodger/rsc/icons/chr_00_" + character.getName() + "_01.png")));
+						}
 						return;
 					}
 			}

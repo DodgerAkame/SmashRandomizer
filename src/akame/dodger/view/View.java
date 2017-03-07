@@ -33,6 +33,52 @@ public class View extends javax.swing.JFrame {
 	 */
 	public View() {
 		initComponents();
+
+		act = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (CharSmash character : controller1.getRoster())
+					if (character.getName().equals(e.getActionCommand())) {
+						character.setChecked(!character.isChecked());
+						if (!character.isChecked()) {
+
+							Kernel k = new Kernel(3, 3, new float[] { .1111f, .1111f, .1111f, .1111f, .1111f, .1111f,
+									.1111f, .1111f, .1111f });
+							ConvolveOp op2 = new ConvolveOp(k);
+
+							BufferedImage bimage = new BufferedImage(
+									((JToggleButton) e.getSource()).getIcon().getIconWidth(),
+									((JToggleButton) e.getSource()).getIcon().getIconHeight(),
+									BufferedImage.TYPE_4BYTE_ABGR);
+
+							Graphics2D bGr = bimage.createGraphics();
+							bGr.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
+									null);
+							bGr.dispose();
+
+							Graphics2D graphics = bimage.createGraphics();
+							graphics.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
+									null);
+							Color newColor = new Color(50, 50, 175, 0);
+							graphics.setXORMode(newColor);
+							graphics.drawImage(bimage, null, 0, 0);
+							graphics.dispose();
+
+							((JToggleButton) e.getSource()).setIcon(new ImageIcon(bimage));
+						} else {
+							((JToggleButton) e.getSource()).setIcon(new ImageIcon(getClass()
+									.getResource("/akame/dodger/rsc/icons/chr_00_" + character.getName() + "_01.png")));
+						}
+						return;
+					}
+			}
+		};
+
+		bayonetta.addActionListener(act);
+		captain.addActionListener(act);
+		cloud.addActionListener(act);
+		dedede.addActionListener(act);
+
 	}
 
 	/**
@@ -57,64 +103,17 @@ public class View extends javax.swing.JFrame {
 		buttonGroup1 = new javax.swing.ButtonGroup();
 		result = new javax.swing.JLabel();
 		draw = new javax.swing.JButton();
-		jToggleButton1 = new javax.swing.JToggleButton();
-		jToggleButton2 = new javax.swing.JToggleButton();
-		jToggleButton3 = new javax.swing.JToggleButton();
-		jToggleButton4 = new javax.swing.JToggleButton();
-		act = new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				for (CharSmash character : controller1.getRoster())
-					if (character.getName().equals(e.getActionCommand())) {
-						character.setChecked(!character.isChecked());
-
-						if (!character.isChecked()) {
-							Kernel k = new Kernel(3, 3, new float[] { .1111f, .1111f, .1111f, .1111f, .1111f, .1111f,
-									.1111f, .1111f, .1111f });
-							ConvolveOp op2 = new ConvolveOp(k);
-
-							BufferedImage bimage = new BufferedImage(
-									((JToggleButton) e.getSource()).getIcon().getIconWidth(),
-									((JToggleButton) e.getSource()).getIcon().getIconHeight(),
-									BufferedImage.TYPE_4BYTE_ABGR);
-
-							Graphics2D bGr = bimage.createGraphics();
-							bGr.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
-									null);
-							bGr.dispose();
-
-							Graphics2D graphics = bimage.createGraphics();
-							graphics.drawImage(((ImageIcon) ((JToggleButton) e.getSource()).getIcon()).getImage(), 0, 0,
-									null);
-							Color newColor = new Color(50, 50, 175, 0);
-							graphics.setXORMode(newColor);
-							graphics.drawImage(bimage, null, 0, 0);
-							graphics.dispose();
-
-							((JToggleButton) e.getSource()).setIcon(new ImageIcon(bimage));
-
-						} else {
-							((JToggleButton) e.getSource()).setIcon(new ImageIcon(getClass()
-									.getResource("/akame/dodger/rsc/icons/chr_00_" + character.getName() + "_01.png")));
-						}
-						return;
-					}
-			}
-		};
-
-		buttonGroup1.add(jToggleButton1);
-		buttonGroup1.add(jToggleButton2);
-		buttonGroup1.add(jToggleButton3);
-		buttonGroup1.add(jToggleButton4);
-
-		jToggleButton1.addActionListener(act);
-		jToggleButton2.addActionListener(act);
-		jToggleButton3.addActionListener(act);
-		jToggleButton4.addActionListener(act);
+		bayonetta = new javax.swing.JToggleButton();
+		captain = new javax.swing.JToggleButton();
+		cloud = new javax.swing.JToggleButton();
+		dedede = new javax.swing.JToggleButton();
+		buttonGroup1.add(bayonetta);
+		buttonGroup1.add(captain);
+		buttonGroup1.add(cloud);
+		buttonGroup1.add(dedede);
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setTitle("Smash Randomizer");
 
 		draw.setText("Draw a character");
 		draw.addActionListener(new java.awt.event.ActionListener() {
@@ -123,33 +122,33 @@ public class View extends javax.swing.JFrame {
 			}
 		});
 
-		jToggleButton1.setIcon(
+		bayonetta.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_bayonetta_01.png"))); // NOI18N
-		jToggleButton1.setAlignmentY(0.0F);
-		jToggleButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-		jToggleButton1.setName("bayonetta"); // NOI18N
-		jToggleButton1.setActionCommand("bayonetta");
+		bayonetta.setAlignmentY(0.0F);
+		bayonetta.setMargin(new java.awt.Insets(0, 0, 0, 0));
+		bayonetta.setName("bayonetta"); // NOI18N
+		bayonetta.setActionCommand("bayonetta");
 
-		jToggleButton2.setIcon(
+		captain.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_captain_01.png"))); // NOI18N
-		jToggleButton2.setAlignmentY(0.0F);
-		jToggleButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-		jToggleButton2.setName("captain"); // NOI18N
-		jToggleButton2.setActionCommand("captain");
+		captain.setAlignmentY(0.0F);
+		captain.setMargin(new java.awt.Insets(0, 0, 0, 0));
+		captain.setName("captain"); // NOI18N
+		captain.setActionCommand("captain");
 
-		jToggleButton3.setIcon(
+		cloud.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_cloud_01.png"))); // NOI18N
-		jToggleButton3.setAlignmentY(0.0F);
-		jToggleButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
-		jToggleButton3.setName("cloud"); // NOI18N
-		jToggleButton3.setActionCommand("cloud");
+		cloud.setAlignmentY(0.0F);
+		cloud.setMargin(new java.awt.Insets(0, 0, 0, 0));
+		cloud.setName("cloud"); // NOI18N
+		cloud.setActionCommand("cloud");
 
-		jToggleButton4.setIcon(
+		dedede.setIcon(
 				new javax.swing.ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_dedede_01.png"))); // NOI18N
-		jToggleButton4.setAlignmentY(0.0F);
-		jToggleButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
-		jToggleButton4.setName("dedede"); // NOI18N
-		jToggleButton4.setActionCommand("dedede");
+		dedede.setAlignmentY(0.0F);
+		dedede.setMargin(new java.awt.Insets(0, 0, 0, 0));
+		dedede.setName("dedede"); // NOI18N
+		dedede.setActionCommand("dedede");
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -157,16 +156,16 @@ public class View extends javax.swing.JFrame {
 				.addGroup(layout.createSequentialGroup().addContainerGap()
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addGroup(layout.createSequentialGroup()
-										.addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+										.addComponent(bayonetta, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+										.addComponent(captain, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
 												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGroup(layout.createSequentialGroup()
-										.addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+										.addComponent(cloud, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+										.addComponent(dedede, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
 												javax.swing.GroupLayout.PREFERRED_SIZE)))
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -182,10 +181,10 @@ public class View extends javax.swing.JFrame {
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGroup(layout.createSequentialGroup()
 										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jToggleButton1).addComponent(jToggleButton2))
+												.addComponent(bayonetta).addComponent(captain))
 										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jToggleButton4).addComponent(jToggleButton3))))
+												.addComponent(dedede).addComponent(cloud))))
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
 						.addComponent(draw).addGap(21, 21, 21)));
 
@@ -259,10 +258,10 @@ public class View extends javax.swing.JFrame {
 	private javax.swing.ButtonGroup buttonGroup1;
 	private akame.dodger.controller.Controller controller1;
 	private javax.swing.JButton draw;
-	private javax.swing.JToggleButton jToggleButton1;
-	private javax.swing.JToggleButton jToggleButton2;
-	private javax.swing.JToggleButton jToggleButton3;
-	private javax.swing.JToggleButton jToggleButton4;
+	private javax.swing.JToggleButton bayonetta;
+	private javax.swing.JToggleButton captain;
+	private javax.swing.JToggleButton cloud;
+	private javax.swing.JToggleButton dedede;
 	private javax.swing.JLabel result;
 	private ActionListener act;
 	// End of variables declaration//GEN-END:variables

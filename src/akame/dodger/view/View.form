@@ -12,10 +12,38 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="openFile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Open File"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openFileActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="saveFile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save  File"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveFileActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="quit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Presets"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -49,14 +77,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jToggleButton5" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="bayonetta" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton6" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="captain" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jToggleButton7" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="cloud" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton8" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="dedede" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -66,7 +94,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
               <Component id="draw" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="751" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="699" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,13 +105,13 @@
                   <Component id="result" min="-2" pref="379" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="bayonetta" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="captain" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="dedede" min="-2" max="-2" attributes="0"/>
+                          <Component id="cloud" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -99,13 +127,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="draw">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Draw a character"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="drawActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton5">
+    <Component class="javax.swing.JToggleButton" name="bayonetta">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/akame/dodger/rsc/icons/chr_00_bayonetta_01.png"/>
@@ -117,7 +145,7 @@
         <Property name="name" type="java.lang.String" value="bayonetta" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton6">
+    <Component class="javax.swing.JToggleButton" name="captain">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/akame/dodger/rsc/icons/chr_00_captain_01.png"/>
@@ -129,7 +157,7 @@
         <Property name="name" type="java.lang.String" value="bayonetta" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton7">
+    <Component class="javax.swing.JToggleButton" name="cloud">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/akame/dodger/rsc/icons/chr_00_cloud_01.png"/>
@@ -141,7 +169,7 @@
         <Property name="name" type="java.lang.String" value="bayonetta" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton8">
+    <Component class="javax.swing.JToggleButton" name="dedede">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/akame/dodger/rsc/icons/chr_00_dedede_01.png"/>

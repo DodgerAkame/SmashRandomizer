@@ -8,9 +8,14 @@ package akame.dodger.controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import akame.dodger.model.CharSmash;
 
@@ -22,18 +27,17 @@ public class Controller {
 
 	private ArrayList<CharSmash> roster = new ArrayList<CharSmash>();
 
-	public Controller() throws IOException {
-//		BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Roster.txt")));
-//		String buffer;
-//		while ((buffer = br.readLine()) != null) {
-//			roster.add(new CharSmash(buffer));
-//		}
-		//TODO Décommenter dès que possible
-		roster.add(new CharSmash("bayonetta"));
-		roster.add(new CharSmash("captain"));
-		roster.add(new CharSmash("cloud"));
-		roster.add(new CharSmash("dedede"));
+	public Controller() throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Roster.txt")));
+		String buffer;
+		while ((buffer = br.readLine()) != null) {
+			roster.add(new CharSmash(buffer));
+		}
 		
+		List<String> names = readSave(new File("save.txt"));
+		for (CharSmash charSmash : roster)
+			if (!names.contains(charSmash.getName()))
+				charSmash.setChecked(!charSmash.isChecked());
 	}
 
 	public ArrayList<CharSmash> getRoster() {
@@ -44,6 +48,33 @@ public class Controller {
 		this.roster = roster;
 	}
 
-	// TODO gérer actions ici hein, pas dans la vue
+	public int getCharacter(String character){
+		int index = -1;
+		
+		for (int i = 0; i < roster.size(); i++)
+			if(roster.get(i).getName().equals(character))
+				index = i;
+		
+		return index;
+	}
 
+	public void writeSave() throws Exception {
+		ArrayList<String> names = new ArrayList<String>();
+
+		for (CharSmash character : roster)
+			if (character.isChecked())
+				names.add(character.getName());
+
+		Path save = Paths.get("save.txt");
+		PrintWriter printWriter = new PrintWriter(save.getFileName().toString());
+		printWriter.close();
+		
+		Files.write(save, names, Charset.forName("UTF-8"));
+
+		// TODO créer un fichier si non existant
+	}
+	
+	public List<String> readSave(File file) throws Exception{
+		return Files.readAllLines(file.toPath());
+	}
 }

@@ -46,11 +46,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-*.png
 .classpath
 *.prefs
 /build/
 /dist/
 *.class
 bin/
-.externalTooBuilders/
+/.externalTooBuilders/
+/nbproject/
+/src/akame/dodger/rsc/
+*.txt

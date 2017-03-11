@@ -46,7 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-*.png
 .classpath
 *.prefs
 /build/
@@ -55,3 +54,5 @@ Temporary Items
 bin/
 /.externalTooBuilders/
 /nbproject/
+/src/akame/dodger/rsc/
+*.txt

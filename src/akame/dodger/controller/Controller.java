@@ -48,14 +48,14 @@ public class Controller {
 		this.roster = roster;
 	}
 
-	public int getCharacter(String character){
+	public CharSmash getCharacter(String character){
 		int index = -1;
 		
 		for (int i = 0; i < roster.size(); i++)
 			if(roster.get(i).getName().equals(character))
-				index = i;
+				return roster.get(i);
 		
-		return index;
+		return null;
 	}
 
 	public void writeSave() throws Exception {

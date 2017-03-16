@@ -25,7 +25,7 @@ When you'll launch the application for the first time, a file named **save.txt**
 <br>On the right, you'll get the portrait of the character chosen right after you clicked.
 <br>
 <br>When you click on a charater, their icon will be toggled. If the character is enabled to participate to the, you'll see their portrait displayed. Else, you'll see their silhouette displayed. 
-<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/javaw_2017-03-16_07-49-02.png "Disabled on the left, enabled on the right")
+<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/javaw_2017-03-16_07-49-02.png "Enabled on the left, disabled on the right")
 <br><br>You can now make your own selection, here's mine for the curious ones.
 <br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/2017-03-16_07-49-36.png "Yes I pick Cloud too. Who doesn't ?")
 <br>

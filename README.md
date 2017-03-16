@@ -1,7 +1,7 @@
 # SmashRandomizer
 ###### by Dodger Akame
 <br>
-SmashRandomizer is a Java application for Smash players for desires to pick random characters without having to play a character they don't like or can't do anything with them. 
+SmashRandomizer is a Java application for Smash players who desire to pick random characters without having to play a character they don't like or can't do anything with them. 
 
 ## [Download the JAR file](https://github.com/DodgerAkame/SmashRandomizer/blob/master/dist/SmashRandomizer.jar "On the top right, you have a 'Download' button. Just click on it.")
 ###### On the top right, you have a "Download" button. Just click on it.
@@ -34,6 +34,7 @@ When you'll launch the application for the first time, a file named **save.txt**
 ### To-do list
 * Code the actions the menu will be able to do
 * Implements custom presets
+* Adding others games of the series
 * I guess a lot of things, tell me !
 
 ###### If you have any suggestions, you can use the forums on that repository, I'll listen to any suggestion so the application can be to the likes of everyone ~

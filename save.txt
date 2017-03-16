@@ -1,2 +1,7 @@
-captain
 dedede
+kirby
+lucina
+mewtwo
+palutena
+pikachu
+zelda

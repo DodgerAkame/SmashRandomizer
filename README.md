@@ -19,18 +19,18 @@ You'll need Java to be able to run the application.
 When you'll launch the application for the first time, a file named **save.txt** will be generated. It contains your selection, no worries. And you can remove it, the application will regenerate it.
 <br>
 <br>The application will look like this the first time
-<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1/2017-03-11_18-03-32.png "First version of the application")
+<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/2017-03-16_07-48-09.png "First version of the application")
 
 <br>On the left, you have the full roster (including Miis, yay \o/) on which you can pick characters, and a button to draw a character randomly.
 <br>On the right, you'll get the portrait of the character chosen right after you clicked.
 <br>
 <br>When you click on a charater, their icon will be toggled. If the character is enabled to participate to the, you'll see their portrait displayed. Else, you'll see their silhouette displayed. 
-<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1/javaw_2017-03-11_18-02-20.png "Disabled on the left, enabled on the right")
+<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/javaw_2017-03-16_07-49-02.png "Disabled on the left, enabled on the right")
 <br><br>You can now make your own selection, here's mine for the curious ones.
-<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1/2017-03-11_18-06-36.png "Yes I pick Cloud too. Who doesn't ?")
+<br>![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/2017-03-16_07-49-36.png "Yes I pick Cloud too. Who doesn't ?")
 <br>
 <br>When your selection is done, you can now click the button to draw a character within the selection, and **voilà !** You can now play with your character picked randomly !
-![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1/2017-03-11_18-24-33.png "Tada !")
+![alt text](https://raw.githubusercontent.com/DodgerAkame/SmashRandomizer/master/readmePictures/v0.1.1/2017-03-16_07-49-53.png "Tada !")
 ### To-do list
 * Code the actions the menu will be able to do
 * Implements custom presets

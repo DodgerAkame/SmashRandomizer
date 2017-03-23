@@ -77,4 +77,5 @@ public class Controller {
 	public List<String> readSave(File file) throws Exception{
 		return Files.readAllLines(file.toPath());
 	}
+	
 }

@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -29,7 +28,6 @@ import javax.swing.JToggleButton;
 
 import akame.dodger.controller.Controller;
 import akame.dodger.model.CharSmash;
-import sun.tools.jar.resources.jar_pt_BR;
 
 /**
  *
@@ -148,7 +146,7 @@ public class View extends javax.swing.JFrame {
 
 	}
 
-	public void tintToogle(JToggleButton e) {
+	private void tintToogle(JToggleButton e) {
 
 		BufferedImage bimage = new BufferedImage(e.getIcon().getIconWidth(), e.getIcon().getIconHeight(),
 				BufferedImage.TYPE_4BYTE_ABGR);
@@ -334,7 +332,7 @@ public class View extends javax.swing.JFrame {
 						.getScaledInstance(75, 75, BufferedImage.SCALE_AREA_AVERAGING))); // NOI18N
 		koopajr.setAlignmentY(0.0F);
 		koopajr.setMargin(new java.awt.Insets(0, 0, 0, 0));
-		koopajr.setName("koopa"); // NOI18N
+		koopajr.setName("koopajr"); // NOI18N
 		koopajr.setActionCommand("koopajr");
 		if (!controller1.getCharacter(koopajr.getName()).isChecked())
 			tintToogle(koopajr);
@@ -996,24 +994,25 @@ public class View extends javax.swing.JFrame {
 
 					controller1.getCharacter(component.getName()).setChecked(false);
 					ImageIcon icon = tintToogle2((JToggleButton) component, component.getName());
-					((JToggleButton)jPanel1.getComponents()[i]).setIcon(icon);
+					((JToggleButton) jPanel1.getComponents()[i]).setIcon(icon);
 					jPanel1.getComponents()[i].setBackground(Color.DARK_GRAY);
 					i++;
-
+					
 				}
 			}
+
+			jPanel1.invalidate();
+			controller1.writeSave();
 
 		} catch (Exception e) {
 			// TODO
 			e.printStackTrace();
 		}
 
-		jPanel1.invalidate();
-		System.out.println("HEY");
 	}// GEN-LAST:event_openFileActionPerformed
 
 	private ImageIcon tintToogle2(JToggleButton component, String character) {
-	
+
 		BufferedImage bimage = new BufferedImage(component.getIcon().getIconWidth(),
 				component.getIcon().getIconHeight(), BufferedImage.TYPE_4BYTE_ABGR);
 
@@ -1022,7 +1021,7 @@ public class View extends javax.swing.JFrame {
 				new ImageIcon(
 						new ImageIcon(getClass().getResource("/akame/dodger/rsc/icons/chr_00_" + character + "_01.png"))
 								.getImage().getScaledInstance(75, 75, BufferedImage.SCALE_AREA_AVERAGING)).getImage(),
-				0, 0, null);
+				0, -10, null);
 
 		// Graphics2D bGr = bimage.createGraphics();
 		// bGr.drawImage(((ImageIcon) component.getIcon()).getImage(), 0, 0,
@@ -1053,6 +1052,14 @@ public class View extends javax.swing.JFrame {
 
 	private void saveFileActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_saveFileActionPerformed
 		// TODO add your handling code here:
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.showSaveDialog(rootPane);
+		try {
+			controller1.writeSave(fileChooser.getSelectedFile());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}// GEN-LAST:event_saveFileActionPerformed
 
 	private void actionButtonGroupListener(ActionEvent ae) {

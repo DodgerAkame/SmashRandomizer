@@ -74,8 +74,26 @@ public class Controller {
 		// TODO créer un fichier si non existant
 	}
 	
+	public void writeSave(File url) throws Exception{
+		ArrayList<String> names = new ArrayList<String>();
+		
+		for (CharSmash character : roster)
+			if (character.isChecked())
+				names.add(character.getName());
+		
+		Path save = url.toPath();
+		if (!url.exists())
+			url.createNewFile();
+		
+		PrintWriter printWriter = new PrintWriter(save.getFileName().toString());
+		printWriter.close();
+		
+		Files.write(save, names, Charset.forName("UTF-8"));
+		
+	}
+	
 	public List<String> readSave(File file) throws Exception{
-		return Files.readAllLines(file.toPath());
+		return Files.readAllLines(file.toPath(), Charset.defaultCharset());
 	}
 	
 }

@@ -56,3 +56,4 @@ bin/
 /nbproject/
 /src/akame/dodger/rsc/
 *.txt
+.idea/
